@@ -98,6 +98,8 @@ $(document).ready(function() {
 
       $.ajax(sessionResults).done(function(test) {
         console.log(test);
+        var key = test.SessionKey;
+        console.log(key);
       });
     });
   }
