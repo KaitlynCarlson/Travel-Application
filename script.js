@@ -1,8 +1,8 @@
 //ACTIVE SELECTOR
-// var userDestination = $("#adventureLocationInput").val();
+var userDestination = $("#adventureLocationInput").val();
 
 //TEST SELECTOR
-var userDestination = "Seattle";
+// var userDestination = "Seattle";
 
 function findActivities() {
   var destinationInfo = {
