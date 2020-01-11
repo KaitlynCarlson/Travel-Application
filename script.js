@@ -1,3 +1,5 @@
+// <<<<<<< HEAD
+// =======
 $(document).ready(function() {
   function buildQueryURLFlight() {
     var adventureLocation = $("#adventureLocationInput").val();
@@ -93,6 +95,8 @@ $(document).ready(function() {
   // var userDestination = "Seattle";
 
   function findActivities() {
+    //ACTIVE SELECTOR
+    var userDestination = $("#adventureLocationInput").val();
     var destinationInfo = {
       async: true,
       crossDomain: true,
