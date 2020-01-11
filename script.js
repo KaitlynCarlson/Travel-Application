@@ -1,10 +1,10 @@
-//ACTIVE SELECTOR
-var userDestination = $("#adventureLocationInput").val();
-
 //TEST SELECTOR
 // var userDestination = "Seattle";
 
 function findActivities() {
+  //ACTIVE SELECTOR
+  var userDestination = $("#adventureLocationInput").val();
+
   var destinationInfo = {
     async: true,
     crossDomain: true,
