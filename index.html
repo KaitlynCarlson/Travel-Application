@@ -25,11 +25,21 @@
     <div class="jumbotron jumbotron-fluid " id="userInput">
       <h1 class="display-4">User Parameters</h1>
       <div class="form-group">
-        <label for="exampleInputEmail1">Adventure location</label>
+        <label>Where will you adventure begin?</label>
         <input
           type="text"
           class="form-control"
-          id="locationInput"
+          id="userLocationInput"
+          aria-describedby="emailHelp"
+          placeholder="Enter City"
+        />
+      </div>
+      <div class="form-group">
+        <label>Adventure location</label>
+        <input
+          type="text"
+          class="form-control"
+          id="adventureLocationInput"
           aria-describedby="emailHelp"
           placeholder="Enter City"
         />

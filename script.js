@@ -1,12 +1,16 @@
 $(document).ready(function() {
   function buildQueryURLFlight() {
-    var adventureLocation = $("#locationInput").val();
+    var adventureLocation = $("#adventureLocationInput").val();
     // console.log(adventureLocation);
     var startFlightDate = $("#startDateInput").val();
     var endFlightDate = $("#endDateInput").val();
+    var userLocation = $("#userLocationInput").val();
+    var cityId = "";
+
+    // console.log(userLocation);
     // console.log(startFlightDate);
     // console.log(endFlightDate);
-    var locations = {
+    var destinationLocation = {
       async: true,
       crossDomain: true,
       url:
@@ -19,18 +23,68 @@ $(document).ready(function() {
         "x-rapidapi-key": "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d"
       }
     };
+    $.ajax(destinationLocation).done(function(adventure) {
+      console.log(adventure);
+      var location = adventure.Places[0].PlaceName;
 
-    $.ajax(locations).done(function(response) {
-      console.log(response);
-      var location = response.Places[0].PlaceName;
+      //   console.log(location);
+      cityId = adventure.Places[0].CityId;
+      console.log(cityId);
+    });
 
-      console.log(location);
-      var cityId = response.Places[0].CityId;
-      if (location === adventureLocation) {
-        console.log(cityId);
+    var userInfo = {
+      async: true,
+      crossDomain: true,
+      url:
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=" +
+        userLocation,
+      method: "GET",
+      headers: {
+        "x-rapidapi-host":
+          "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+        "x-rapidapi-key": "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d"
       }
+    };
+    $.ajax(userInfo).done(function(userresponse) {
+      //   console.log(userresponse);
+
+      //   console.log(userLocation);
+      var userCityId = userresponse.Places[0].CityId;
+      console.log(userCityId);
+      var flightParameters = {
+        async: true,
+        crossDomain: true,
+        url:
+          "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/pricing/v1.0",
+        method: "POST",
+        headers: {
+          "x-rapidapi-host":
+            "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+          "x-rapidapi-key":
+            "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d",
+          "content-type": "application/x-www-form-urlencoded"
+        },
+        data: {
+          inboundDate: "2020-02-10",
+          cabinClass: "business",
+          children: "0",
+          infants: "0",
+          country: "US",
+          currency: "USD",
+          locale: "en-US",
+          originPlace: userCityId,
+          destinationPlace: cityId,
+          outboundDate: "2020-02-01",
+          adults: "1"
+        }
+      };
+
+      $.ajax(flightParameters).done(function(flightData) {
+        // console.log(flightData);
+      });
     });
   }
+
   function buildQueryURLRest() {
     var travelBudget = $("#travelBudget").val();
     // console.log(travelBudget);
@@ -41,6 +95,7 @@ $(document).ready(function() {
     // console.log(startRestDate);
     // console.log(endRestDate);
   }
+
   $("#searchCriteria").on("click", function() {
     buildQueryURLFlight();
     buildQueryURLRest();
