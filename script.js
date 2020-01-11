@@ -1,5 +1,3 @@
-// <<<<<<< HEAD
-// =======
 $(document).ready(function() {
   function buildQueryURLFlight() {
     var adventureLocation = $("#adventureLocationInput").val();
