@@ -48,8 +48,8 @@ $(document).ready(function() {
       //   console.log(userresponse);
       //   console.log(userLocation);
       var userCityId = userresponse.Places[0].CityId;
-      console.log(userCityId);
-      console.log(cityId);
+      //   console.log(userCityId);
+      //   console.log(cityId);
       var flightQuote = {
         async: true,
         crossDomain: true,
@@ -77,11 +77,14 @@ $(document).ready(function() {
   }
 
   function buildQueryURLRest() {
-    var restStartLocation = $("#userInput");
+    var restStartLocation = $("#userLocationInput").val();
+    var restEndLocation = $("#adventureLocationInput").val();
     var travelBudget = $("#travelBudget").val();
     // console.log(travelBudget);
     var sleepBudget = $("#sleepBudget").val();
     // console.log(sleepBudget);
+    console.log(restEndLocation);
+    console.log(restStartLocation);
   }
 
   $("#searchCriteria").on("click", function() {
