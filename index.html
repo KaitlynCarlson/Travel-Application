@@ -4,9 +4,70 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="script.js"></script>
+
     <title>Document</title>
   </head>
   <body>
-    <!-- PR Test -->
+    <div class="jumbotron jumbotron-fluid " id="userInput">
+      <h1 class="display-4">User Parameters</h1>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Adventure location</label>
+        <input
+          type="text"
+          class="form-control"
+          id="locationInput"
+          aria-describedby="emailHelp"
+          placeholder="Enter City"
+        />
+      </div>
+      <div class="form-group">
+        <label>Enter adventure start date</label>
+        <input
+          type="text"
+          class="form-control"
+          id="startDateInput"
+          placeholder="Format: YYYY-MM-DD"
+        />
+      </div>
+      <div class="form-group">
+        <label>Enter adventure end date</label>
+        <input
+          type="text"
+          class="form-control"
+          id="endDateInput"
+          placeholder="Format: YYYY-MM-DD"
+        />
+      </div>
+      <div class="form-group">
+        <label>Enter maximum travel budget</label>
+        <input type="text" class="form-control" id="travelBudget" />
+      </div>
+      <div class="form-group">
+        <label>Enter maximum sleep budget</label>
+        <input type="text" class="form-control" id="sleepBudget" />
+      </div>
+
+      <button type="submit" id="searchCriteria" class="btn btn-outline-dark">
+        Find Adventure
+      </button>
+    </div>
+    <div class="jumbotron jumbotron-fluid" id="travelDisplay">
+      <h1 class="display-4">Display Itineraries</h1>
+      <p class="lead" id="displayItineraries"></p>
+    </div>
   </body>
 </html>
