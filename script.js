@@ -120,7 +120,7 @@ function buildQueryURLSleep() {
   var adventureLocationHotel = $("#adventureLocationInput").val();
   // var hotelBudget = $("#sleepBudget").val();
   var checkIn = $("#startDateInput").val();
-  console.log(hotelBudget);
+  // console.log(hotelBudget);
   var adventureHotelLocation = {
     async: true,
     crossDomain: true,
@@ -136,7 +136,7 @@ function buildQueryURLSleep() {
   };
   $.ajax(adventureHotelLocation).done(function(hotelId) {
     console.log(hotelId);
-    console.log(sleepBuget);
+    // console.log(sleepBuget);
     var hotelLocationId = hotelId.data[0].result_object.location_id;
     var adventureHotelsAvailable = {
       async: true,
