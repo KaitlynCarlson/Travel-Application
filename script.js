@@ -230,6 +230,7 @@ function findActivities() {
           var activityList = $('<div class="card-body"></div>');
           var displayActivityName = $('<h4 class="card-title"></h4> ');
           var displayActivityRank = $('<p class="card-text"></p> ');
+
           // I created buttons inside the card that we can target later using 'this' for storage
           var activitySave = $("<button class= 'btn-outline-dark'>");
           activitySave.text("Mark your spot");
