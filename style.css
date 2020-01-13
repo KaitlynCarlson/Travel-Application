@@ -23,7 +23,6 @@
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-
   margin-left: 0px;
 }
 
@@ -34,4 +33,13 @@
 
 #top {
   width: 200px;
+}
+#bottom-empty {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card-body {
+  max-width: 524px;
+  border: 1px solid slategray;
 }
