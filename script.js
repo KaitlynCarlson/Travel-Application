@@ -68,7 +68,6 @@ function buildQueryURLFlight() {
         "x-rapidapi-key": "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d"
       }
     };
-
     $.ajax(flightSearch).then(function(adventureFlight) {
       console.log(adventureFlight);
       var fly = adventureFlight.Quotes;
@@ -96,19 +95,6 @@ function buildQueryURLFlight() {
 
           displayFlightCard.append([displayFlightTitle, displayFlightBody]);
           $("#bottom-empty").append(displayFlightCard);
-        }
-        // for (var i = 0; i <= companies.length; ++i) {
-        //   trying = $('<p class="card-text"></p> ');
-        //   $("#bottom-empty").append(trying);
-
-        //   if (flightsQuotedProviders === companies[i].CarrierId) {
-        //     trying.append(companies[i].name);
-        //   }
-        // }
-        if (fly === null || 0) {
-          alert(
-            "Unable to find quoted prices that meet your criteria. Please adjust your adventure, or try again later"
-          );
         }
       }
     });
@@ -170,6 +156,8 @@ function buildQueryURLSleep() {
         var displayHotelBody = $('<p class="card-text"></p> ');
         var hotelImage = $("<img>");
         $(hotelImage).attr("src", image);
+        var saveHotel = $("<button class = btn-outline-dark>");
+        saveHotel.text("Mark Your Spot");
         displayHotelTitle.prepend(hotelImage);
         displayHotelTitle.append(hotelName);
 
@@ -178,7 +166,11 @@ function buildQueryURLSleep() {
           "Prices ranging from " + priceRange + " " + "<br>",
           "Ranked as the " + " " + hotelRanking
         );
-        displayHotelInfo.append([displayHotelTitle, displayHotelBody]);
+        displayHotelInfo.append([
+          displayHotelTitle,
+          displayHotelBody,
+          saveHotel
+        ]);
         $("#bottom-empty").append(displayHotelInfo);
       }
     });
@@ -250,8 +242,11 @@ function findActivities() {
     });
   });
 }
-
+function clear() {
+  $("#bottom-empty").empty();
+}
 $("#searchCriteria").on("click", function() {
+  clear();
   buildQueryURLFlight();
   buildQueryURLSleep();
   findActivities();
