@@ -1,51 +1,46 @@
-
 #this {
-
-background-image: url("./newassets/plane.jpg");
-background-repeat: no-repeat;
-background-size: 100%;
-height:100%;
-width: 100%;
-margin-left: inherit;
-
-}
-
-.col-6 {
-display: grid;
-justify-items:center ;
+    background-image: url("./newassets/plane.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 100%;
+    width: 100%;
+    margin-left: inherit;
+  }
+  
+  .col-6 {
+    display: grid;
+    justify-items: center;
     margin: auto;
-}
-
-#left-block {
-
+  }
+  
+  #left-block {
     height: auto;
     width: auto;
-}
-
-
-.row {
+  }
+  
+  .row {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    
     margin-left: 0px;
-}
-
-
-
-.img-fluid { 
+  }
+  
+  .img-fluid {
     max-width: 100%;
     height: auto;
-
-
-}
-
-#bottom-empty {
-color: aqua;
-    background-color: aqua;
-}
-#top {
-
+  }
+  
+  #top {
     width: 200px;
-}
+  }
+  #bottom-empty {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .card-body {
+    max-width: 524px;
+    border: 1px solid slategray;
+  }
+  © 2020 GitHub, Inc.
