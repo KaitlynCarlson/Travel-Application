@@ -118,9 +118,9 @@ function buildQueryURLFlight() {
 function buildQueryURLSleep() {
   var adventureStartLocationHotel = $("#userLocationInput").val();
   var adventureLocationHotel = $("#adventureLocationInput").val();
-  var sleepBudget = $("#sleepBudget").val();
+  // var hotelBudget = $("#sleepBudget").val();
   var checkIn = $("#startDateInput").val();
-
+  console.log(hotelBudget);
   var adventureHotelLocation = {
     async: true,
     crossDomain: true,
@@ -136,13 +136,14 @@ function buildQueryURLSleep() {
   };
   $.ajax(adventureHotelLocation).done(function(hotelId) {
     console.log(hotelId);
+    console.log(sleepBuget);
     var hotelLocationId = hotelId.data[0].result_object.location_id;
     var adventureHotelsAvailable = {
       async: true,
       crossDomain: true,
       url:
         "https://tripadvisor1.p.rapidapi.com/hotels/list?zff=4%252C6&offset=0&subcategory=hotel%252Cbb%252Cspecialty&pricesmax=" +
-        sleepBudget +
+        // sleepBudget +
         "&hotel_class=1%252C2%252C3&currency=USD&limit=30&checkin=" +
         checkIn +
         "&order=asc&lang=en_US&sort=recommended&nights=1&location_id=" +
@@ -251,7 +252,7 @@ function findActivities() {
 }
 
 $("#searchCriteria").on("click", function() {
-  // buildQueryURLFlight();
+  buildQueryURLFlight();
   buildQueryURLSleep();
-  // findActivities();
+  findActivities();
 });
