@@ -72,7 +72,10 @@ function buildQueryURLFlight() {
     $.ajax(flightSearch).then(function(adventureFlight) {
       console.log(adventureFlight);
       var fly = adventureFlight.Quotes;
+      var companies = adventureFlight.Carriers;
+      console.log(companies);
       console.log(fly);
+      // var trying = "";
 
       searchFlightPriceAndProvider(fly);
       function searchFlightPriceAndProvider() {
@@ -90,29 +93,101 @@ function buildQueryURLFlight() {
           displayFlightBody.append(
             "$ " + flightPrices + " from " + flightsQuotedProviders
           );
+
           displayFlightCard.append([displayFlightTitle, displayFlightBody]);
           $("#bottom-empty").append(displayFlightCard);
+        }
+        // for (var i = 0; i <= companies.length; ++i) {
+        //   trying = $('<p class="card-text"></p> ');
+        //   $("#bottom-empty").append(trying);
+
+        //   if (flightsQuotedProviders === companies[i].CarrierId) {
+        //     trying.append(companies[i].name);
+        //   }
+        // }
+        if (fly === null || 0) {
+          alert(
+            "Unable to find quoted prices that meet your criteria. Please adjust your adventure, or try again later"
+          );
         }
       }
     });
   });
 }
 
-// function buildQueryURLSleep() {
-//   var restStartLocation = $("#userLocationInput").val();
-//   var restEndLocation = $("#adventureLocationInput").val();
-//   var travelBudget = $("#travelBudget").val();
-//   // console.log(travelBudget);
-//   var sleepBudget = $("#sleepBudget").val();
-//   // console.log(sleepBudget);
-//   console.log(restEndLocation);
-//   console.log(restStartLocation);
-// }
+function buildQueryURLSleep() {
+  var adventureStartLocationHotel = $("#userLocationInput").val();
+  var adventureLocationHotel = $("#adventureLocationInput").val();
+  var sleepBudget = $("#sleepBudget").val();
+  var checkIn = $("#startDateInput").val();
+
+  var adventureHotelLocation = {
+    async: true,
+    crossDomain: true,
+    url:
+      "https://tripadvisor1.p.rapidapi.com/locations/search?query=" +
+      adventureLocationHotel +
+      "&lang=en_US&units=km",
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+      "x-rapidapi-key": "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d"
+    }
+  };
+  $.ajax(adventureHotelLocation).done(function(hotelId) {
+    console.log(hotelId);
+    var hotelLocationId = hotelId.data[0].result_object.location_id;
+    var adventureHotelsAvailable = {
+      async: true,
+      crossDomain: true,
+      url:
+        "https://tripadvisor1.p.rapidapi.com/hotels/list?zff=4%252C6&offset=0&subcategory=hotel%252Cbb%252Cspecialty&pricesmax=" +
+        sleepBudget +
+        "&hotel_class=1%252C2%252C3&currency=USD&limit=30&checkin=" +
+        checkIn +
+        "&order=asc&lang=en_US&sort=recommended&nights=1&location_id=" +
+        hotelLocationId +
+        "&adults=1&rooms=1",
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
+        "x-rapidapi-key": "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d"
+      }
+    };
+
+    $.ajax(adventureHotelsAvailable).done(function(hotelInfo) {
+      console.log(hotelInfo);
+      var adventureHotelOptions = hotelInfo.data;
+      for (var i = 0; i <= 4; ++i) {
+        var hotelName = adventureHotelOptions[i].name;
+        var hotelRating = adventureHotelOptions[i].rating;
+        var priceRange = adventureHotelOptions[i].price;
+        var image = adventureHotelOptions[i].photo.images.thumbnail.url;
+        var hotelRanking = adventureHotelOptions[i].ranking;
+        var displayHotelInfo = $('<div class="card-body"></div>');
+        var displayHotelTitle = $('<h4 class="card-title"></h4> ');
+        var displayHotelBody = $('<p class="card-text"></p> ');
+        var hotelImage = $("<img>");
+        $(hotelImage).attr("src", image);
+        displayHotelTitle.prepend(hotelImage);
+        displayHotelTitle.append(hotelName);
+
+        displayHotelBody.append(
+          "Rated: " + hotelRating + " " + "<br>",
+          "Prices ranging from " + priceRange + " " + "<br>",
+          "Ranked as the " + " " + hotelRanking
+        );
+        displayHotelInfo.append([displayHotelTitle, displayHotelBody]);
+        $("#bottom-empty").append(displayHotelInfo);
+      }
+    });
+  });
+}
 //ACTIVE SELECTOR
 var userDestination = $("#adventureLocationInput").val();
 
 //TEST SELECTOR
-var userDestination = "Seattle";
+// var userDestination = "Seattle";
 
 function findActivities() {
   //ACTIVE SELECTOR
@@ -161,9 +236,7 @@ function findActivities() {
 
           var activityList = $('<div class="card-body"></div>');
           var displayActivityName = $('<h4 class="card-title"></h4> ');
-          var displayActivityRank = $(
-            '<p class="card-text" id="card-humidity"></p> '
-          );
+          var displayActivityRank = $('<p class="card-text"></p> ');
 
           displayActivityName.append(activityName);
           displayActivityRank.append(
@@ -178,7 +251,7 @@ function findActivities() {
 }
 
 $("#searchCriteria").on("click", function() {
-  buildQueryURLFlight();
-  // buildQueryURLSleep();
+  // buildQueryURLFlight();
+  buildQueryURLSleep();
   // findActivities();
 });
