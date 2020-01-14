@@ -28,6 +28,61 @@
   </head>
 
   <body>
+
+
+
+    <div class="container">
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modal-header">
+              Choose Your Own Adventure              </h5>
+            </div>
+            <div class="modal-body">
+              <div class="modalleft"></div>
+              <div class="modalright">
+                <form>
+                  <div class="form-group">
+                    <label for="User Name">Create User Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="userName"
+                      placeholder="User Name"
+                    />
+                    <small id="emailHelp" class="form-text text-muted"
+                      >Disclaimer: This is not a secure account.</small
+                    >
+                  </div>
+                  <div class="form-group">
+                    <label for="User Password">Create Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="userPassword"
+                      placeholder="Password"
+                    />
+                  </div>
+
+                  <button type="submit" class="btn" id="user-account">
+                    Create Adventure Book
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn close" data-dismiss="modal">
+                X
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="user.js"></script>
     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -115,60 +170,9 @@
     </div>
     </div>
     <div class="bottom-empty" id="bottom-empty"></div> 
-    <div class="container">
-      <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content" style="border:5px solid cadetblue;">
-            <div class="modal-header">
-              <h5 class="modal-title" id="modal-header">
-                Adventure Awaits
-              </h5>
-            </div>
-            <div class="modal-body">
-              <div class="modalleft"></div>
-              <div class="modalright">
-                <form>
-                  <div class="form-group">
-                    <label for="User Name">Create User Name</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="userName"
-                      placeholder="User Name"
-                    />
-                    <small id="emailHelp" class="form-text text-muted"
-                      >Disclaimer: This is not a secure account.</small
-                    >
-                  </div>
-                  <div class="form-group">
-                    <label for="User Password">Create Password</label>
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="userPassword"
-                      placeholder="Password"
-                    />
-                  </div>
-
-                  <button type="submit" class="btn" id="user-account">
-                    Create Adventure Book
-                  </button>
-                </form>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn close" data-dismiss="modal">
-                X
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  
 
   <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
-    <script src="user.js"></script>
   </body>
 </html>

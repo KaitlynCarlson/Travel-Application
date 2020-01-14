@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("#myModal").attr("data-background", "black");
+  $("#myModal").css("background-color", "darkslategrey");
   if (!Cookies.get("popup")) {
     $("#myModal").modal("show");
     Cookies.set("popup", "popped");
