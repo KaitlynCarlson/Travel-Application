@@ -45,12 +45,14 @@
 }
 /** Modal CSS **/
 #myModal {
-  opacity: 98%;
+  opacity: 100%;
 }
+
 .modal-body {
   display: flex;
   padding: 0;
 }
+
 .modalleft {
   width: 40%;
   padding: 0 10px 0 0;
