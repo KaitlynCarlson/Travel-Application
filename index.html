@@ -28,16 +28,14 @@
   </head>
 
   <body>
-
-
-
     <div class="container">
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="modal-header">
-              Choose Your Own Adventure              </h5>
+              <h3 class="modal-title" id="modal-header">
+                Choose Your Own Adventure
+              </h3>
             </div>
             <div class="modal-body">
               <div class="modalleft"></div>
@@ -65,7 +63,12 @@
                     />
                   </div>
 
-                  <button type="submit" class="btn"  data-dismiss = "modal" id="user-account">
+                  <button
+                    type="submit"
+                    class="btn"
+                    id="user-account"
+                    data-dismiss="modal"
+                  >
                     Create Adventure Book
                   </button>
                 </form>
@@ -80,20 +83,29 @@
         </div>
       </div>
     </div>
- 
+
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="user.js"></script>
-   
+
     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Adventure</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class=" navbar" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link " href="#">Adventure Book</a>
@@ -101,73 +113,99 @@
         </ul>
       </div>
     </nav>
- 
-    
 
     <div class="row" id="this">
-
       <div class="col-6" id="left-block">
         <div class="form-group">
-
-        <input
-          type="text"
-          class="form-control"
-          id="userLocationInput"
-          aria-describedby="emailHelp"
-          placeholder="Enter City"
-        />
+          <input
+            type="text"
+            class="form-control"
+            id="userLocationInput"
+            aria-describedby="emailHelp"
+            placeholder="Enter City"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="adventureLocationInput"
+            aria-describedby="emailHelp"
+            placeholder="Enter City"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="startDateInput"
+            placeholder="Format: YYYY-MM-DD"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="endDateInput"
+            placeholder="Format: YYYY-MM-DD"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="travelBudget"
+            placeholder="Travel Budget"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="sleepBudget"
+            placeholder="Sleep Budget"
+          />
+        </div>
+        <button type="button" id="searchCriteria" class="btn btn-primary">
+          Let's Go!
+        </button>
       </div>
-      <div class="form-group">
 
-
-        <input
-          type="text"
-          class="form-control"
-          id="adventureLocationInput"
-          aria-describedby="emailHelp"
-          placeholder="Enter City"
-        />
-
-        <input
-          type="text"
-          class="form-control"
-          id="startDateInput"
-          placeholder="Format: YYYY-MM-DD"
-        />
-      </div>
-      <div class="form-group">
-
-        <input
-          type="text"
-          class="form-control"
-          id="endDateInput"
-          placeholder="Format: YYYY-MM-DD"
-        />
-      </div>
-      <div class="form-group">
-
-        <input 
-        type="text" 
-        class="form-control" 
-        id="travelBudget" />
-      </div>
-      <div class="form-group">
-        <input 
-        type="text" 
-        class="form-control" 
-        id="sleepBudget" />
-      </div>
-        <button type="button" id="searchCriteria" class="btn btn-primary">Primary</button>
-      </div>
+      <!--right side results area-->
       <div class="col-6" id="right-block">
-        <button type="button" class="btn btn-primary">Primary</button>
+        <div class="form-group">
+          <textarea class="form-control" rows="12" id="comment"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary">Let's Go!</button>
       </div>
     </div>
+
+    <!--bottom results area-->
+    <br />
+
+    <div class="bottom-empty" id="bottom-empty">
+      <div class="card">
+        <div class="container">
+          <h4><b>Flights...</b></h4>
+          <p></p>
+        </div>
+      </div>
+      <br />
+      <div class="card">
+        <div class="container">
+          <h4><b>Hotels...</b></h4>
+          <p></p>
+        </div>
+      </div>
+      <br />
+      <div class="card">
+        <div class="container">
+          <h4><b>Food & Drink...</b></h4>
+          <p></p>
+        </div>
+      </div>
     </div>
-    <div class="bottom-empty" id="bottom-empty"></div> 
-  
 
-  <script src="script.js"></script>
-
+    <script src="script.js"></script>
   </body>
 </html>
