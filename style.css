@@ -44,6 +44,9 @@
   border: 1px solid slategray;
 }
 /** Modal CSS **/
+#myModal {
+  opacity: 98%;
+}
 .modal-body {
   display: flex;
   padding: 0;
@@ -71,8 +74,17 @@
 #user-account {
   background-color: cadetblue;
   color: white;
+  padding: 10px;
+  display: inline-block;
+  font-family: Arial, Sans-Serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 100%;
+  opacity: 70%;
 }
-
+#user-account:hover {
+  opacity: 100%;
+}
 /* Close Button */
 .close {
   width: 30px;
