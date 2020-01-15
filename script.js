@@ -156,7 +156,10 @@ function buildQueryURLSleep() {
         var displayHotelBody = $('<p class="card-text"></p> ');
         var hotelImage = $("<img>");
         $(hotelImage).attr("src", image);
-        var saveHotel = $("<button class = btn-outline-dark>");
+        var saveHotel = $("<button class = btn-outline-dark>").on(
+          "click",
+          appendToSomethingDiv
+        );
         saveHotel.text("Mark Your Spot");
         displayHotelTitle.prepend(hotelImage);
         displayHotelTitle.append(hotelName);
@@ -181,7 +184,7 @@ var userDestination = $("#adventureLocationInput").val();
 
 //TEST SELECTOR
 // var userDestination = "Seattle";
-
+var activitySave;
 function findActivities() {
   //ACTIVE SELECTOR
   var userDestination = $("#adventureLocationInput").val();
@@ -232,30 +235,43 @@ function findActivities() {
           var displayActivityRank = $('<p class="card-text"></p> ');
 
           // I created buttons inside the card that we can target later using 'this' for storage
-          var activitySave = $("<button class= 'btn-outline-dark'>");
+          activitySave = $("<button class='btn-outline-dark'>").on(
+            "click",
+            appendToSomethingDiv
+          );
           activitySave.text("Mark your spot");
 
           displayActivityName.append(activityName);
-          displayActivityRank.append(
-            "This activity is considered " + activityRank
-          );
+          displayActivityRank.append("This activity is ranked " + activityRank);
           activityList.append([
             displayActivityName,
             displayActivityRank,
             activitySave
           ]);
+
           $("#bottom-empty").append(activityList);
         }
       }
     });
   });
 }
+
 function clear() {
   $("#bottom-empty").empty();
 }
+
 $("#searchCriteria").on("click", function() {
   clear();
   buildQueryURLFlight();
   buildQueryURLSleep();
   findActivities();
 });
+
+function appendToSomethingDiv() {
+  var itineraryDiv = $("#right-block");
+  itineraryDiv.prepend($(this).siblings());
+  $(this, "button").hide();
+  $(this, "card-body").hide();
+}
+
+// $(".btn-outline-dark").on("click", appendToSomethingDiv);

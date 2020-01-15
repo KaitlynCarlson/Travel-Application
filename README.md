@@ -18,10 +18,10 @@ So that I can adventure often
 
 Page should be responsive and usable on multiple devices (mobile & desktop).
 User can create an account to save their itinerary.
-User should be able to search using budget & travel dates to have it return a given amount of itinerary options.
-User can choose how many options to return.
+User should be able to search using travel dates to have it return a given amount of itinerary options.
+User will be able to view flight options, 5 hotels and 5 places to eat.
 User will see a preview of possible itineraries.
-User can click on any given itinerary to display the itinerary in the adventure modal.
+User can click on any given itinerary to display the itinerary in the adventure div
 
 # Additional Usability Additions
 
