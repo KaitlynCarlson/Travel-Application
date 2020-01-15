@@ -96,7 +96,6 @@ function buildQueryURLFlight() {
           displayFlightCard.append([displayFlightTitle, displayFlightBody]);
 
           $("#flight-display").append(displayFlightCard);
-
         }
       }
     });
@@ -178,7 +177,6 @@ function buildQueryURLSleep() {
         ]);
 
         $("#hotel-display").append(displayHotelInfo);
-
       }
     });
   });
@@ -254,8 +252,6 @@ function findActivities() {
           ]);
 
           $("#activity-display").append(activityList);
-
-
         }
       }
     });
@@ -263,11 +259,9 @@ function findActivities() {
 }
 
 function clear() {
-
   $("#flight-display").empty();
   $("#hotel-display").empty();
   $("#activity-display").empty();
-
 }
 
 $("#searchCriteria").on("click", function() {
