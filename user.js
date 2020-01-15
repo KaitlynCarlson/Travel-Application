@@ -12,9 +12,7 @@ $("#user-account").on("click", function(e) {
   console.warn("added", localAccounts);
   localStorage.setItem("accounts", localAccounts);
   e.preventDefault();
-
-  console.log(localAccounts);
-  $("#loggedin").append(userName);
+  $("#loggedin").text(userName);
 });
 
 $(document).ready(function() {

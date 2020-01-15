@@ -105,9 +105,7 @@ function buildQueryURLFlight() {
 function buildQueryURLSleep() {
   var adventureStartLocationHotel = $("#userLocationInput").val();
   var adventureLocationHotel = $("#adventureLocationInput").val();
-  // var hotelBudget = $("#sleepBudget").val();
   var checkIn = $("#startDateInput").val();
-  // console.log(hotelBudget);
   var adventureHotelLocation = {
     async: true,
     crossDomain: true,
@@ -123,14 +121,12 @@ function buildQueryURLSleep() {
   };
   $.ajax(adventureHotelLocation).done(function(hotelId) {
     console.log(hotelId);
-    // console.log(sleepBuget);
     var hotelLocationId = hotelId.data[0].result_object.location_id;
     var adventureHotelsAvailable = {
       async: true,
       crossDomain: true,
       url:
         "https://tripadvisor1.p.rapidapi.com/hotels/list?zff=4%252C6&offset=0&subcategory=hotel%252Cbb%252Cspecialty&pricesmax=" +
-        // sleepBudget +
         "&hotel_class=1%252C2%252C3&currency=USD&limit=30&checkin=" +
         checkIn +
         "&order=asc&lang=en_US&sort=recommended&nights=1&location_id=" +
@@ -150,7 +146,7 @@ function buildQueryURLSleep() {
         var hotelName = adventureHotelOptions[i].name;
         var hotelRating = adventureHotelOptions[i].rating;
         var priceRange = adventureHotelOptions[i].price;
-        var image = adventureHotelOptions[i].photo.images.thumbnail.url;
+        var image = adventureHotelOptions[i].photo.images.small.url;
         var hotelRanking = adventureHotelOptions[i].ranking;
         var displayHotelInfo = $('<div class="card-body"></div>');
         var displayHotelTitle = $('<h4 class="card-title"></h4> ');
@@ -270,9 +266,18 @@ $("#searchCriteria").on("click", function() {
   findActivities();
 });
 
+var itineraryDiv = $("#right-block");
+
 function appendToSomethingDiv() {
-  var itineraryDiv = $("#right-block");
   itineraryDiv.prepend($(this).siblings());
   $(this, "button").hide();
   $(this, "card-body").hide();
 }
+var newAdventure = [];
+$("#buildadventure").on("click", function() {
+  $("#displayadventures").append(itineraryDiv);
+  $("#adventureBook").css("box-shadow", "0px 0px 5px #ddd");
+  $("#adventureBook").on("click", function() {
+    $("#adventureBook").css("box-shadow", "0px 0px 0px");
+  });
+});

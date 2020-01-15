@@ -7,12 +7,16 @@
   margin-left: inherit;
 }
 #userIcon {
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
 }
 #adventureBook {
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
+}
+.user-icons {
+  display: flex;
+  align-items: center;
 }
 
 a {
