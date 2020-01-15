@@ -8,10 +8,13 @@
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Choose your Venture</title>
+    <script src="script.js"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Find Your Adventure</title>
+
 
     <link rel="stylesheet" href="style.css" />
     <link
@@ -114,7 +117,38 @@
       </div>
     </nav>
 
+
+<body>
+
+  <!--navbar area-->
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Find Your Adventure</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+   
     <div class="row" id="this">
+<!--left input fields-->
+
       <div class="col-6" id="left-block">
         <div class="form-group">
           <input
@@ -171,40 +205,104 @@
         </button>
       </div>
 
-      <!--right side results area-->
-      <div class="col-6" id="right-block">
-        <div class="form-group">
-          <textarea class="form-control" rows="12" id="comment"></textarea>
-        </div>
-        <button type="button" class="btn btn-primary">Let's Go!</button>
+
+
+        <input
+          type="text"
+          class="form-control"
+          id="adventureLocationInput"
+          aria-describedby="emailHelp"
+          placeholder="Enter City"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="startDateInput"
+          placeholder="Format: YYYY-MM-DD"
+        />
+
       </div>
     </div>
 
     <!--bottom results area-->
     <br />
 
-    <div class="bottom-empty" id="bottom-empty">
-      <div class="card">
-        <div class="container">
-          <h4 class="display-4"><b>Flights...</b></h4>
-          <p class="lead" id="flight-display"></p>
-        </div>
+        <input 
+        type="text" 
+        class="form-control" 
+        id="travelBudget"
+        placeholder="Travel Budget"
+        />
+        
       </div>
-      <br />
-      <div class="card">
-        <div class="container">
-          <h4 class="display-4"><b>Hotels...</b></h4>
-          <p class="lead" id="hotel-display"></p>
-        </div>
+      <div class="form-group">
+        <input 
+        type="text" 
+        class="form-control" 
+        id="sleepBudget"
+        placeholder="Sleep Budget"
+        />
       </div>
-      <br />
-      <div class="card">
-        <div class="container">
-          <h4 class="display-4"><b>Food & Drink...</b></h4>
-          <p class="lead" id="activity-display"></p>
+        <button type="button" id="searchCriteria" class="btn btn-primary">Let's Go!</button>
+      </div>
+
+      <!--right side results area-->
+      <div class="col-6" id="right-block">
+        <div id="something">
+          
         </div>
+        <button type="button" class="btn btn-primary">Let's Go!</button>
       </div>
     </div>
+
+    
+      
+
+    <!--bottom results area-->
+    <br>
+  
+  <div class="bottom-empty" id="bottom-empty">
+
+
+    <div class="card">
+     <div class="container">
+        <h4><b>Flights...</b></h4> 
+        <p id="flight-display"></p> 
+      </div>
+    </div>
+<br>
+    <div class="card">
+     <div class="container">
+        <h4><b>Hotels...</b></h4> 
+        <p id="hotel-display"></p> 
+      </div>
+    </div>
+<br>
+    <div class="card">
+     <div class="container">
+        <h4><b>Food & Drink...</b></h4> 
+        <p id="activity-display"></p> 
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+  <script src="script.js"></script>
+
+</body>
+
+
+
 
     <script src="script.js"></script>
   </body>

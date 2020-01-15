@@ -1,10 +1,18 @@
 #this {
-  background-image: url("./newassets/plane.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 100%;
-  width: 100%;
-  margin-left: inherit;
+
+
+background-image: url("./newassets/jet.jpeg");
+background-repeat: no-repeat;
+background-size: 100%;
+height:100%;
+width: 100%;
+margin-left: inherit;
+
+
+a {
+font-family: fantasy;
+
+
 }
 
 .col-6 {
@@ -14,8 +22,12 @@
 }
 
 #left-block {
-  height: auto;
-  width: auto;
+
+
+
+    height: auto;
+    width: auto;
+   
 }
 
 .row {
@@ -30,6 +42,34 @@
   max-width: 100%;
   height: auto;
 }
+
+
+
+#top {
+  width: 200px;
+  }
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+     margin: 0 auto; 
+        float: none; 
+        margin-bottom: 10px; 
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+  
+  
+  .card {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+  
+  .container {
+    padding: 2px 16px;
+  }
+
 
 #top {
   width: 200px;
@@ -51,6 +91,7 @@
   display: flex;
   padding: 0;
 }
+
 
 .modalleft {
   width: 40%;
@@ -147,8 +188,20 @@
     width: 90%;
   }
 
+
+
+
+
+
   .modalleft img {
     width: 200px;
+
     margin-top: 160px;
+
+
+}
+@media screen and (max-height: 1500px) {
+  #this {height:700px;}
+
   }
 }
