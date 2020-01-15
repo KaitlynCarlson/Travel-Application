@@ -10,11 +10,10 @@
 
     <script src="script.js"></script>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Find Your Adventure</title>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Find Your Adventure</title>
 
     <link rel="stylesheet" href="style.css" />
     <link
@@ -90,136 +89,117 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="user.js"></script>
 
-    
-        
-
-<body>
-
-  <!--navbar area-->
-  <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Find Your Adventure</a>
-    
-    </div>
-  </nav>
-  
-   
-    <div class="row" id="this">
-<!--left input fields-->
-      <div class="col-6" id="left-block">
-        <div class="form-group">
-
-        <input
-          type="text"
-          class="form-control"
-          id="userLocationInput"
-          aria-describedby="emailHelp"
-          placeholder="Enter City"
-        />
-      </div>
-      <div class="form-group">
-
-
-        <input
-          type="text"
-          class="form-control"
-          id="adventureLocationInput"
-          aria-describedby="emailHelp"
-          placeholder="Enter City"
-        />
-      </div>
-      <div class="form-group">
-        <input
-          type="text"
-          class="form-control"
-          id="startDateInput"
-          placeholder="Format: YYYY-MM-DD"
-        />
-      </div>
-      <div class="form-group">
-
-        <input
-          type="text"
-          class="form-control"
-          id="endDateInput"
-          placeholder="Format: YYYY-MM-DD"
-        />
-      </div>
-      <div class="form-group">
-
-        <input 
-        type="text" 
-        class="form-control" 
-        id="travelBudget"
-        placeholder="Travel Budget"
-        />
-        
-      </div>
-      <div class="form-group">
-        <input 
-        type="text" 
-        class="form-control" 
-        id="sleepBudget"
-        placeholder="Sleep Budget"
-        />
-      </div>
-        <button type="button" id="searchCriteria" class="btn btn-primary">Let's Go!</button>
-      </div>
-
-      <!--right side results area-->
-      <div class="col-6" id="right-block">
-        <div id="something">
-          
+    <body>
+      <!--navbar area-->
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Find Your Adventure</a>
+        <div>
+          <img
+            src="https://cdn.pixabay.com/photo/2013/07/13/01/16/journal-155431_960_720.png"
+            id="adventureBook"
+          />
+          <img
+            src="https://cdn.pixabay.com/photo/2017/03/21/13/27/evil-2162179_960_720.png"
+            id="userIcon"
+          />
+          <a class="navbar-brand" href="#" id="loggedin"></a>
         </div>
-        <button type="button" class="btn btn-primary">Let's Go!</button>
+      </nav>
+
+      <div class="row" id="this">
+        <!--left input fields-->
+        <div class="col-6" id="left-block">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="userLocationInput"
+              aria-describedby="emailHelp"
+              placeholder="Enter City"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="adventureLocationInput"
+              aria-describedby="emailHelp"
+              placeholder="Enter City"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="startDateInput"
+              placeholder="Format: YYYY-MM-DD"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="endDateInput"
+              placeholder="Format: YYYY-MM-DD"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="travelBudget"
+              placeholder="Travel Budget"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="sleepBudget"
+              placeholder="Sleep Budget"
+            />
+          </div>
+          <button type="button" id="searchCriteria" class="btn btn-primary">
+            Let's Go!
+          </button>
+        </div>
+
+        <!--right side results area-->
+        <div class="col-6" id="right-block">
+          <div id="something"></div>
+          <button type="button" class="btn btn-primary">Let's Go!</button>
+        </div>
       </div>
-    </div>
 
-    
-      
+      <!--bottom results area-->
+      <br />
 
-    <!--bottom results area-->
-    <br>
-  
-  <div class="bottom-empty" id="bottom-empty">
+      <div class="bottom-empty" id="bottom-empty">
+        <div class="card">
+          <div class="container">
+            <h4><b>Flights...</b></h4>
 
+            <p id="flight-display"></p>
+          </div>
+        </div>
+        <br />
+        <div class="card">
+          <div class="container">
+            <h4><b>Hotels...</b></h4>
 
-    <div class="card">
-     <div class="container">
-        <h4><b>Flights...</b></h4> 
-
-        <p id = "flight-display"></p> 
-
+            <p id="hotel-display"></p>
+          </div>
+        </div>
+        <br />
+        <div class="card">
+          <div class="container">
+            <h4><b>Food & Drink...</b></h4>
+            <p id="activity-display"></p>
+          </div>
+        </div>
       </div>
-    </div>
-<br>
-    <div class="card">
-     <div class="container">
-        <h4><b>Hotels...</b></h4> 
 
-        <p id ="hotel-display"></p> 
-
-  
-      </div>
-    </div>
-<br>
-    <div class="card">
-     <div class="container">
-        <h4><b>Food & Drink...</b></h4> 
-        <p id= "activity-display"></p> 
-
-      </div>
-    </div>
-
-
-
-
-  </div>
-
-
-
-
-
-
-  <script src="script.js"></script>
-
-</body>
+      <script src="script.js"></script>
+    </body>
+  </body>
+</html>

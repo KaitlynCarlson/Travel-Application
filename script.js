@@ -118,7 +118,7 @@ function buildQueryURLSleep() {
     method: "GET",
     headers: {
       "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-      "x-rapidapi-key": "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d"
+      "x-rapidapi-key": "2778688141msh106169e0d4b6f62p121e94jsn21f4d9f51cba"
     }
   };
   $.ajax(adventureHotelLocation).done(function(hotelId) {
@@ -139,7 +139,7 @@ function buildQueryURLSleep() {
       method: "GET",
       headers: {
         "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-        "x-rapidapi-key": "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d"
+        "x-rapidapi-key": "2778688141msh106169e0d4b6f62p121e94jsn21f4d9f51cba"
       }
     };
 
@@ -185,7 +185,6 @@ function buildQueryURLSleep() {
 var userDestination = $("#adventureLocationInput").val();
 
 //TEST SELECTOR
-// var userDestination = "Seattle";
 var activitySave;
 function findActivities() {
   //ACTIVE SELECTOR
@@ -277,5 +276,3 @@ function appendToSomethingDiv() {
   $(this, "button").hide();
   $(this, "card-body").hide();
 }
-
-// $(".btn-outline-dark").on("click", appendToSomethingDiv);

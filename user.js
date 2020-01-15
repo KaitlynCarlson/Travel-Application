@@ -1,24 +1,23 @@
-$("#user-account").on("click", function() {
+$("#user-account").on("click", function(e) {
+  var userName = $("#userName").val();
+  var userPassword = $("#userPassword").val();
   var localAccounts = [];
-  const newUser = function(e) {
-    e.preventDefault();
-    var addUser = {
-      Name: $("#userName").val(),
-      Password: "#userPassword".val()
-    };
-    $(localAccounts).push($(addUser));
+
+  var addUser = {
+    Name: userName,
+    Password: userPassword
   };
+  localAccounts.push(addUser);
 
   console.warn("added", localAccounts);
+  localStorage.setItem("accounts", localAccounts);
+  e.preventDefault();
 
-  //   var test = $("#bottom-empty");
-  //   test.append(JSON.stringify(localAccounts));
+  console.log(localAccounts);
+  $("#loggedin").append(userName);
 });
 
 $(document).ready(function() {
   $("#myModal").css("background-color", "darkslategrey");
-  if (!Cookies.get("popup")) {
-    $("#myModal").modal("show");
-    Cookies.set("popup", "popped");
-  }
+  $("#myModal").modal("show");
 });
