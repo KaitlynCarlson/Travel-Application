@@ -149,6 +149,7 @@ function buildQueryURLSleep() {
         var image = adventureHotelOptions[i].photo.images.small.url;
         var hotelRanking = adventureHotelOptions[i].ranking;
         var displayHotelInfo = $('<div class="card-body"></div>');
+        var displayHotelImage = $("<h4></h4>");
         var displayHotelTitle = $('<h4 class="card-title"></h4> ');
         var displayHotelBody = $('<p class="card-text"></p> ');
         var hotelImage = $("<img>");
@@ -158,7 +159,8 @@ function buildQueryURLSleep() {
           appendToSomethingDiv
         );
         saveHotel.text("Mark Your Spot");
-        displayHotelTitle.prepend(hotelImage);
+        displayHotelImage.append(hotelImage);
+        displayHotelTitle.prepend(displayHotelImage);
         displayHotelTitle.append(hotelName);
 
         displayHotelBody.append(
@@ -275,7 +277,8 @@ function appendToSomethingDiv() {
 }
 var newAdventure = [];
 $("#buildadventure").on("click", function() {
-  $("#displayadventures").append(itineraryDiv);
+  $("#currentAdventure").append(itineraryDiv);
+  $("#buildadventure").text("Save Adventure");
   $("#adventureBook").css("box-shadow", "0px 0px 5px #ddd");
   $("#adventureBook").on("click", function() {
     $("#adventureBook").css("box-shadow", "0px 0px 0px");

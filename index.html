@@ -215,7 +215,19 @@
               </button>
             </div>
             <div class="modal-body" id="displayadventures">
-              ...
+              <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist"> <li role="presentation" class="active"><a href="#currentAdventure"  role="tab" data-toggle="tab">Unsaved</a>
+
+                </li>
+                <li role="presentation"><a href="#storedAdventures" role="tab" data-toggle="tab">Adventure Book</a>
+    
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="currentAdventure"></div>
+                <div role="tabpanel" class="tab-pane" id="storedAdventures"></div>
+              </div>
             </div>
           </div>
         </div>
