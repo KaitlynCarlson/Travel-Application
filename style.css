@@ -1,5 +1,6 @@
 #this {
 
+
 background-image: url("./newassets/jet.jpeg");
 background-repeat: no-repeat;
 background-size: 100%;
@@ -23,9 +24,10 @@ font-family: fantasy;
 #left-block {
 
 
+
     height: auto;
     width: auto;
-    
+   
 }
 
 .row {
@@ -40,6 +42,8 @@ font-family: fantasy;
   max-width: 100%;
   height: auto;
 }
+
+
 
 #top {
   width: 200px;
@@ -67,16 +71,137 @@ font-family: fantasy;
   }
 
 
-
-
-
 #top {
+  width: 200px;
+}
+#bottom-empty {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card-body {
+  max-width: 524px;
+  border: 1px solid slategray;
+}
+/** Modal CSS **/
+#myModal {
+  opacity: 100%;
+}
+.modal-body {
+  display: flex;
+  padding: 0;
+}
 
+
+.modalleft {
+  width: 40%;
+  padding: 0 10px 0 0;
+  box-sizing: border-box;
+  min-height: 2px;
+}
+.modalright {
+  width: 40%;
+  padding: 0px;
+  box-sizing: border-box;
+  min-height: 278px;
+}
+.modalleft img {
+  width: 100%;
+  margin-top: 0px;
+}
+.modalleft {
+  background: url("https://cdn.pixabay.com/photo/2018/05/18/16/41/globe-3411506_960_720.jpg")
+    no-repeat center top / auto 100%;
+}
+#user-account {
+  background-color: cadetblue;
+  color: white;
+  padding: 10px;
+  display: inline-block;
+  font-family: Arial, Sans-Serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 100%;
+  opacity: 70%;
+}
+#user-account:hover {
+  opacity: 100%;
+}
+/* Close Button */
+.close {
+  width: 30px;
+  height: 30px;
+  padding: 4px 2px 0px;
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8%;
+  font-family: Arial, Sans-Serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 100%;
+}
+/** Media Adjustments **/
+
+@media (max-width: 1500px) {
+  .modalleft {
+    width: 40%;
+  }
+  .modalright {
+    width: 60%;
+    padding: 5%;
+  }
+  .modalleft img {
+    width: 100%;
+    margin-top: 18px;
+  }
+}
+@media (max-width: 550px) {
+  .bbtitle {
+    text-align: center;
+    font-size: 22px;
+  }
+  .modalleft {
+    height: 200px;
+    background-size: cover;
+    background-position: center top;
+  }
+  .modalright {
+    width: 100%;
+  }
+  .off {
+    font-size: 60px;
+  }
+  .modalleft img {
     width: 200px;
+    margin-top: 18px;
+  }
+}
+@media (max-width: 450px) {
+  .modalleft {
+    height: 200px;
+    background-size: cover;
+    background-position: center top;
+  }
+  .modalright {
+    width: 90%;
+  }
+
+
+
+
+
+
+  .modalleft img {
+    width: 200px;
+
+    margin-top: 160px;
+
 
 }
 @media screen and (max-height: 1500px) {
   #this {height:700px;}
-    
+
   }
 }
