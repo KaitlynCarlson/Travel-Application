@@ -69,12 +69,8 @@ function buildQueryURLFlight() {
       }
     };
     $.ajax(flightSearch).then(function(adventureFlight) {
-      console.log(adventureFlight);
+      // console.log(adventureFlight);
       var fly = adventureFlight.Quotes;
-      var companies = adventureFlight.Carriers;
-      console.log(companies);
-      console.log(fly);
-      // var trying = "";
 
       searchFlightPriceAndProvider(fly);
       function searchFlightPriceAndProvider() {
@@ -105,9 +101,7 @@ function buildQueryURLFlight() {
 function buildQueryURLSleep() {
   var adventureStartLocationHotel = $("#userLocationInput").val();
   var adventureLocationHotel = $("#adventureLocationInput").val();
-  // var hotelBudget = $("#sleepBudget").val();
   var checkIn = $("#startDateInput").val();
-  // console.log(hotelBudget);
   var adventureHotelLocation = {
     async: true,
     crossDomain: true,
@@ -118,19 +112,17 @@ function buildQueryURLSleep() {
     method: "GET",
     headers: {
       "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-      "x-rapidapi-key": "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d"
+      "x-rapidapi-key": "2778688141msh106169e0d4b6f62p121e94jsn21f4d9f51cba"
     }
   };
   $.ajax(adventureHotelLocation).done(function(hotelId) {
-    console.log(hotelId);
-    // console.log(sleepBuget);
+    // console.log(hotelId);
     var hotelLocationId = hotelId.data[0].result_object.location_id;
     var adventureHotelsAvailable = {
       async: true,
       crossDomain: true,
       url:
         "https://tripadvisor1.p.rapidapi.com/hotels/list?zff=4%252C6&offset=0&subcategory=hotel%252Cbb%252Cspecialty&pricesmax=" +
-        // sleepBudget +
         "&hotel_class=1%252C2%252C3&currency=USD&limit=30&checkin=" +
         checkIn +
         "&order=asc&lang=en_US&sort=recommended&nights=1&location_id=" +
@@ -139,20 +131,21 @@ function buildQueryURLSleep() {
       method: "GET",
       headers: {
         "x-rapidapi-host": "tripadvisor1.p.rapidapi.com",
-        "x-rapidapi-key": "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d"
+        "x-rapidapi-key": "2778688141msh106169e0d4b6f62p121e94jsn21f4d9f51cba"
       }
     };
 
     $.ajax(adventureHotelsAvailable).done(function(hotelInfo) {
-      console.log(hotelInfo);
+      // console.log(hotelInfo);
       var adventureHotelOptions = hotelInfo.data;
       for (var i = 0; i <= 4; ++i) {
         var hotelName = adventureHotelOptions[i].name;
         var hotelRating = adventureHotelOptions[i].rating;
         var priceRange = adventureHotelOptions[i].price;
-        var image = adventureHotelOptions[i].photo.images.thumbnail.url;
+        var image = adventureHotelOptions[i].photo.images.small.url;
         var hotelRanking = adventureHotelOptions[i].ranking;
         var displayHotelInfo = $('<div class="card-body"></div>');
+        var displayHotelImage = $("<h4></h4>");
         var displayHotelTitle = $('<h4 class="card-title"></h4> ');
         var displayHotelBody = $('<p class="card-text"></p> ');
         var hotelImage = $("<img>");
@@ -162,7 +155,8 @@ function buildQueryURLSleep() {
           appendToSomethingDiv
         );
         saveHotel.text("Mark Your Spot");
-        displayHotelTitle.prepend(hotelImage);
+        displayHotelImage.append(hotelImage);
+        displayHotelTitle.prepend(displayHotelImage);
         displayHotelTitle.append(hotelName);
 
         displayHotelBody.append(
@@ -185,7 +179,6 @@ function buildQueryURLSleep() {
 var userDestination = $("#adventureLocationInput").val();
 
 //TEST SELECTOR
-// var userDestination = "Seattle";
 var activitySave;
 function findActivities() {
   //ACTIVE SELECTOR
@@ -206,7 +199,7 @@ function findActivities() {
 
   $.ajax(destinationInfo).done(function(destinationResponse) {
     var destinationID = destinationResponse.data[0].result_object.location_id;
-    console.log("This is the destination ID " + destinationID);
+    // console.log("This is the destination ID " + destinationID);
 
     var activityInfo = {
       async: true,
@@ -222,7 +215,7 @@ function findActivities() {
     };
 
     $.ajax(activityInfo).done(function(activityResponse) {
-      console.log(activityResponse);
+      // console.log(activityResponse);
       var activityChoice = activityResponse.data;
 
       appendActivities(activityChoice);
@@ -271,11 +264,49 @@ $("#searchCriteria").on("click", function() {
   findActivities();
 });
 
+var itineraryDiv = $("#right-block");
+
 function appendToSomethingDiv() {
-  var itineraryDiv = $("#right-block");
   itineraryDiv.prepend($(this).siblings());
   $(this, "button").hide();
   $(this, "card-body").hide();
 }
+// Store adventures under account name
+$("#saveAdventure").on("click", function() {
+  var customItinerary = $(this).siblings();
+  var savedAdventures = [];
+  console.log(adventureKey);
+  var adventureInfo = {
+    Destination: $("#adventureLocationInput").val(),
+    Date: $("#startDateInput").val(),
+    savedItinerary: customItinerary
+  };
+  savedAdventures.push(adventureInfo);
+  console.warn("Adventure Added", savedAdventures);
+  localStorage.setItem(adventureKey, JSON.stringify(savedAdventures));
+  console.log(savedAdventures[0].savedItinerary[0]);
 
-// $(".btn-outline-dark").on("click", appendToSomethingDiv);
+  var addAdventure = savedAdventures[0].savedItinerary;
+
+  console.log(addAdventure);
+  var adventureName =
+    savedAdventures[0].Destination + " " + savedAdventures[0].Date;
+  for (var i = 0; i < addAdventure.length; i++) {
+    var savedContainer = $("<div class='container'></div>");
+    var savedActivityTitle = $("<h4 class='card-title'></h4>");
+    var adventureTitle = $("<h1 class='display-4'></h1>");
+    adventureTitle.text(adventureName);
+    savedActivityTitle.append(addAdventure[i]);
+    savedContainer.append(savedActivityTitle);
+    savedContainer.prepend(adventureTitle);
+  }
+  for (var i = 0; i < addAdventure.length; i++) {
+    var savedBody = $("<p class='card-text'></p>");
+    savedBody.append(addAdventure[i]);
+    savedContainer.append(savedBody);
+  }
+  $("#displayadventures").append(savedContainer);
+});
+var retrieveUser = localStorage.getItem("accounts");
+var renderUser = JSON.parse(retrieveUser);
+var adventureKey = renderUser[0].Name + renderUser[0].Password;

@@ -1,24 +1,28 @@
-$("#user-account").on("click", function() {
-  var localAccounts = [];
-  const newUser = function(e) {
-    e.preventDefault();
-    var addUser = {
-      Name: $("#userName").val(),
-      Password: "#userPassword".val()
-    };
-    $(localAccounts).push($(addUser));
-  };
+// Create account on load modal
+$(document).ready(function() {
+  // $("#adventurebookmodal").css("background-color", "	#082567");
+  // $("#myModal").css("background-color", "	#082567");
+  $("#myModal").modal("show");
 
-  console.warn("added", localAccounts);
-
-  //   var test = $("#bottom-empty");
-  //   test.append(JSON.stringify(localAccounts));
+  // $("#adventureBook").css("box-shadow", "0px 0px 5px #ddd");
+  // $("#adventureBook").on("click", function() {
+  //   $("#adventureBook").css("box-shadow", "0px 0px 0px");
+  // });
 });
 
-$(document).ready(function() {
-  $("#myModal").css("background-color", "darkslategrey");
-  if (!Cookies.get("popup")) {
-    $("#myModal").modal("show");
-    Cookies.set("popup", "popped");
-  }
+// Store account on create account button click
+$("#user-account").on("click", function(e) {
+  var localAccounts = [];
+  var userName = $("#userName").val();
+  var userPassword = $("#userPassword").val();
+
+  var addUser = {
+    Name: userName,
+    Password: userPassword
+  };
+  localAccounts.push(addUser);
+
+  console.warn("added", localAccounts);
+  localStorage.setItem("accounts", JSON.stringify(localAccounts));
+  e.preventDefault();
 });
