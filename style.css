@@ -6,6 +6,21 @@
   position: relative;
 }
 
+#nav-main {
+  background-color: #0a1548;
+  display: flex;
+}
+
+#userIcon {
+  color: white;
+  padding-right: 10px;
+}
+
+#adventureBook {
+  color: white;
+  padding-left: 10px;
+}
+
 #site-title {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -17,14 +32,6 @@
   opacity: 80%;
 }
 
-#userIcon {
-  width: 60px;
-  height: 60px;
-}
-#adventureBook {
-  width: 60px;
-  height: 60px;
-}
 .user-icons {
   display: flex;
   align-items: center;
