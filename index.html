@@ -208,6 +208,7 @@
               <h5 class="modal-title" id="adventurebookmodaltitle">
                 Adventure Book
               </h5>
+
               <button
                 type="button"
                 class="close"
@@ -217,7 +218,24 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body" id="displayadventures"></div>
+            <ul class="nav nav-tabs" id="tab-content">
+              <li class="active">
+                <a href="#displayAdventures" data-toggle="tab"
+                  >Current Customized Adventure</a
+                >
+              </li>
+              <li>
+                <a href="#adventureHistory" data-toggle="tab"
+                  >Previous adventures</a
+                >
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="displayadventures">
+                <div class="modal-body" id="currentAdventure"></div>
+              </div>
+              <div class="tab-pane" id="adventureHistory"></div>
+            </div>
             <button class="btn btn-primary" id="storeAdventure">
               Store Adventure to Account
             </button>

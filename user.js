@@ -1,13 +1,6 @@
 // Create account on load modal
 $(document).ready(function() {
-  // $("#adventurebookmodal").css("background-color", "	#082567");
-  // $("#myModal").css("background-color", "	#082567");
   $("#myModal").modal("show");
-
-  // $("#adventureBook").css("box-shadow", "0px 0px 5px #ddd");
-  // $("#adventureBook").on("click", function() {
-  //   $("#adventureBook").css("box-shadow", "0px 0px 0px");
-  // });
 });
 
 // Store account on create account button click

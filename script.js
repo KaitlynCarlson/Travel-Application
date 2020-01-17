@@ -305,8 +305,10 @@ $("#saveAdventure").on("click", function() {
     savedBody.append(addAdventure[i]);
     savedContainer.append(savedBody);
   }
-  $("#displayadventures").append(savedContainer);
+  $("#currentAdventure").append(savedContainer);
 });
 var retrieveUser = localStorage.getItem("accounts");
 var renderUser = JSON.parse(retrieveUser);
 var adventureKey = renderUser[0].Name + renderUser[0].Password;
+
+var userAdventures = [];
