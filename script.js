@@ -69,12 +69,8 @@ function buildQueryURLFlight() {
       }
     };
     $.ajax(flightSearch).then(function(adventureFlight) {
-      console.log(adventureFlight);
+      // console.log(adventureFlight);
       var fly = adventureFlight.Quotes;
-      var companies = adventureFlight.Carriers;
-      console.log(companies);
-      console.log(fly);
-      // var trying = "";
 
       searchFlightPriceAndProvider(fly);
       function searchFlightPriceAndProvider() {
@@ -120,7 +116,7 @@ function buildQueryURLSleep() {
     }
   };
   $.ajax(adventureHotelLocation).done(function(hotelId) {
-    console.log(hotelId);
+    // console.log(hotelId);
     var hotelLocationId = hotelId.data[0].result_object.location_id;
     var adventureHotelsAvailable = {
       async: true,
@@ -140,7 +136,7 @@ function buildQueryURLSleep() {
     };
 
     $.ajax(adventureHotelsAvailable).done(function(hotelInfo) {
-      console.log(hotelInfo);
+      // console.log(hotelInfo);
       var adventureHotelOptions = hotelInfo.data;
       for (var i = 0; i <= 4; ++i) {
         var hotelName = adventureHotelOptions[i].name;
@@ -203,7 +199,7 @@ function findActivities() {
 
   $.ajax(destinationInfo).done(function(destinationResponse) {
     var destinationID = destinationResponse.data[0].result_object.location_id;
-    console.log("This is the destination ID " + destinationID);
+    // console.log("This is the destination ID " + destinationID);
 
     var activityInfo = {
       async: true,
@@ -219,7 +215,7 @@ function findActivities() {
     };
 
     $.ajax(activityInfo).done(function(activityResponse) {
-      console.log(activityResponse);
+      // console.log(activityResponse);
       var activityChoice = activityResponse.data;
 
       appendActivities(activityChoice);
@@ -275,12 +271,37 @@ function appendToSomethingDiv() {
   $(this, "button").hide();
   $(this, "card-body").hide();
 }
-var newAdventure = [];
-$("#buildadventure").on("click", function() {
-  $("#currentAdventure").append(itineraryDiv);
-  $("#buildadventure").text("Save Adventure");
-  $("#adventureBook").css("box-shadow", "0px 0px 5px #ddd");
-  $("#adventureBook").on("click", function() {
-    $("#adventureBook").css("box-shadow", "0px 0px 0px");
-  });
+// Store adventures under account name
+$("#saveAdventure").on("click", function() {
+  var retrieveUser = localStorage.getItem("accounts");
+  var renderUser = JSON.parse(retrieveUser);
+  var customItinerary = $(this).siblings();
+  var adventureKey = renderUser[0].Name + renderUser[0].Password;
+  var savedAdventures = [];
+  console.log(adventureKey);
+  var adventureInfo = {
+    Destination: $("#adventureLocationInput").val(),
+    Date: $("#startDateInput").val(),
+    savedItinerary: customItinerary
+  };
+  savedAdventures.push(adventureInfo);
+  console.warn("Adventure Added", savedAdventures);
+  localStorage.setItem(adventureKey, JSON.stringify(savedAdventures));
+  console.log(savedAdventures[0].savedItinerary[0]);
+
+  var addAdventure = savedAdventures[0].savedItinerary;
+  console.log(addAdventure);
+  for (var i = 0; i < addAdventure.length; i++) {
+    var savedContainer = $("<div class='container'></div>");
+    var savedTitle = $("<h4 class='card-title'></h4>");
+
+    savedTitle.append(addAdventure[i]);
+    savedContainer.append(savedTitle);
+  }
+  for (var i = 0; i < addAdventure.length; i++) {
+    var savedBody = $("<p class='card-text'></p>");
+    savedBody.append(addAdventure[i]);
+    savedContainer.append(savedBody);
+  }
+  $("#displayadventures").append(savedContainer);
 });

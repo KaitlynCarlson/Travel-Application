@@ -40,7 +40,6 @@
               </h3>
             </div>
             <div class="modal-body">
-              <div class="modalleft"></div>
               <div class="modalright">
                 <form>
                   <div class="form-group">
@@ -67,7 +66,7 @@
 
                   <button
                     type="submit"
-                    class="btn"
+                    class="btn btn-primary"
                     id="user-account"
                     data-dismiss="modal"
                   >
@@ -122,6 +121,8 @@
               placeholder="Enter City"
             />
           </div>
+          <div class="col-6" id="left-block"></div>
+
           <div class="form-group">
             <input
               type="text"
@@ -152,40 +153,44 @@
             Let's Go!
           </button>
         </div>
-
-        <!--right side results area-->
-        <div class="col-6" id="right-block">
-          <div id="something"></div>
-          <button type="button" class="btn btn-primary" id="buildadventure">
-            Let's Go!
-          </button>
-        </div>
       </div>
 
       <!--bottom results area-->
       <br />
+      <div id="adventureRow">
+        <div class="container">
+          <div class="card">
+            <div class="container">
+              <h4><b>Flights...</b></h4>
 
-      <div class="bottom-empty" id="bottom-empty">
-        <div class="card">
-          <div class="container">
-            <h4><b>Flights...</b></h4>
+              <p id="flight-display"></p>
+            </div>
+          </div>
+          <br />
+          <div class="card">
+            <div class="container">
+              <h4><b>Hotels...</b></h4>
 
-            <p id="flight-display"></p>
+              <p id="hotel-display"></p>
+            </div>
+          </div>
+          <br />
+          <div class="card">
+            <div class="container">
+              <h4><b>Food & Drink...</b></h4>
+              <p id="activity-display"></p>
+            </div>
           </div>
         </div>
-        <br />
-        <div class="card">
-          <div class="container">
-            <h4><b>Hotels...</b></h4>
 
-            <p id="hotel-display"></p>
-          </div>
-        </div>
-        <br />
-        <div class="card">
-          <div class="container">
-            <h4><b>Food & Drink...</b></h4>
-            <p id="activity-display"></p>
+        <div class="container card">
+          <h4><b>Build Your Own Adventure</b></h4>
+          <div id="something">
+            <div id="right-block">
+              <button class="btn btn-primary" id="saveAdventure">
+                Save to Adventure Book
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -214,24 +219,11 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body" id="displayadventures">
-              <div role="tabpanel">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist"> <li role="presentation" class="active"><a href="#currentAdventure"  role="tab" data-toggle="tab">Unsaved</a>
-
-                </li>
-                <li role="presentation"><a href="#storedAdventures" role="tab" data-toggle="tab">Adventure Book</a>
-    
-                </li>
-              </ul>
-              <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="currentAdventure"></div>
-                <div role="tabpanel" class="tab-pane" id="storedAdventures"></div>
-              </div>
-            </div>
+            <div class="modal-body" id="displayadventures"></div>
           </div>
         </div>
       </div>
+
       <script src="script.js"></script>
     </body>
   </body>

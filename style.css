@@ -4,15 +4,16 @@
   background-size: 100%;
   height: 700px;
   width: 100%;
-  margin-left: inherit;
+  position: relative;
 }
+
 #userIcon {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
 }
 #adventureBook {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
 }
 .user-icons {
   display: flex;
@@ -21,6 +22,15 @@
 
 a {
   font-family: fantasy;
+}
+#adventureRow {
+  display: flex;
+  flex-direction: row;
+  margin: 5%;
+  justify-content: center;
+}
+#right {
+  display: grid;
 }
 
 .col-6 {
@@ -33,13 +43,12 @@ a {
 #left-block {
   height: auto;
   width: auto;
+  position: absolute;
+  padding: 10%;
 }
 
 .row {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  display: grid;
   margin-left: 0px;
 }
 
@@ -89,36 +98,16 @@ a {
   padding: 0;
 }
 
-.modalleft {
-  width: 40%;
-  padding: 0 10px 0 0;
-  box-sizing: border-box;
-  min-height: 2px;
-}
-.modalright {
-  width: 40%;
-  padding: 0px;
-  box-sizing: border-box;
-  min-height: 278px;
-}
-.modalleft img {
-  width: 100%;
-  margin-top: 0px;
-}
-.modalleft {
-  background: url("https://cdn.pixabay.com/photo/2018/05/18/16/41/globe-3411506_960_720.jpg")
-    no-repeat center top / auto 100%;
-}
 #user-account {
-  background-color: cadetblue;
   color: white;
+  /* background-color: #082567; */
   padding: 10px;
   display: inline-block;
   font-family: Arial, Sans-Serif;
   font-size: 20px;
   text-align: center;
   line-height: 100%;
-  opacity: 70%;
+  opacity: 90%;
 }
 #user-account:hover {
   opacity: 100%;
@@ -141,17 +130,11 @@ a {
 /** Media Adjustments **/
 
 @media (max-width: 1500px) {
-  .modalleft {
-    width: 40%;
-  }
   .modalright {
-    width: 60%;
+    width: 100%;
     padding: 5%;
   }
-  .modalleft img {
-    width: 100%;
-    margin-top: 18px;
-  }
+
   #this {
     height: 700px;
   }
@@ -161,34 +144,16 @@ a {
     text-align: center;
     font-size: 22px;
   }
-  .modalleft {
-    height: 200px;
-    background-size: cover;
-    background-position: center top;
-  }
+
   .modalright {
     width: 100%;
   }
   .off {
     font-size: 60px;
   }
-  .modalleft img {
-    width: 200px;
-    margin-top: 18px;
-  }
 }
 @media (max-width: 450px) {
-  .modalleft {
-    height: 200px;
-    background-size: cover;
-    background-position: center top;
-  }
   .modalright {
-    width: 90%;
-  }
-
-  .modalleft img {
-    width: 200px;
-    margin-top: 160px;
+    width: 100%;
   }
 }
