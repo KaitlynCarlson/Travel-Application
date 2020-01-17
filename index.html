@@ -2,6 +2,10 @@
 <html lang="en">
   <head>
     <script
+      src="https://kit.fontawesome.com/d7576195fc.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
       crossorigin="anonymous"
@@ -91,7 +95,14 @@
     <body>
       <!--navbar area-->
       <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Find Your Adventure</a>
+        <h1 class="display-4" id="site-title">
+          Find Your Adventure
+          <img
+            src="newassets/paper_plane_PNG41.png"
+            style="height:100px; width:100px"
+          />
+        </h1>
+
         <div class="user-icons">
           <h1 class="navbar-brand" id="loggedin"></h1>
           <img
@@ -111,8 +122,9 @@
 
       <div class="row" id="this">
         <!--left input fields-->
-        <div class="col-6" id="left-block">
+        <div class="col-lg-6 col-sm-12" id="left-block">
           <div class="form-group">
+            <label class="form-check-label">From</label>
             <input
               type="text"
               class="form-control"
@@ -121,9 +133,11 @@
               placeholder="Enter City"
             />
           </div>
-          <div class="col-6" id="left-block"></div>
+
+          <div class="col-lg-6 col-sm-12" id="left-block"></div>
 
           <div class="form-group">
+            <label class="form-check-label">To</label>
             <input
               type="text"
               class="form-control"
@@ -133,6 +147,7 @@
             />
           </div>
           <div class="form-group">
+            <label class="form-check-label">Departure Date</label>
             <input
               type="text"
               class="form-control"
@@ -141,6 +156,7 @@
             />
           </div>
           <div class="form-group">
+            <label class="form-check-label">Return Date</label>
             <input
               type="text"
               class="form-control"
@@ -157,33 +173,27 @@
 
       <!--bottom results area-->
       <br />
-      <div id="adventureRow">
-        <div class="container">
+      <div id="adventureRow" class="row">
+        <div class="container col-lg-6 col-sm-12">
           <div class="card">
-            <div class="container">
-              <h4><b>Flights...</b></h4>
+            <h4><b>Flights...</b></h4>
 
-              <p id="flight-display"></p>
-            </div>
+            <p id="flight-display"></p>
           </div>
           <br />
           <div class="card">
-            <div class="container">
-              <h4><b>Hotels...</b></h4>
+            <h4><b>Hotels...</b></h4>
 
-              <p id="hotel-display"></p>
-            </div>
+            <p id="hotel-display"></p>
           </div>
           <br />
           <div class="card">
-            <div class="container">
-              <h4><b>Food & Drink...</b></h4>
-              <p id="activity-display"></p>
-            </div>
+            <h4><b>Food & Drink...</b></h4>
+            <p id="activity-display"></p>
           </div>
         </div>
 
-        <div class="container card">
+        <div class="container card col-lg-6 col-sm-12">
           <h4><b>Build Your Own Adventure</b></h4>
           <div id="something">
             <div id="right-block">
