@@ -93,7 +93,6 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="user.js"></script>
 
     <body>
@@ -185,7 +184,7 @@
           </div>
         </div>
 
-        <div class="container card col-lg-6 col-sm-12">
+        <div class="container card col-lg-6 col-sm-12" id="custom">
           <h4><b>Build Your Own Adventure</b></h4>
           <div id="something">
             <div id="right-block">
@@ -199,7 +198,6 @@
       <div
         class="modal fade"
         id="adventurebookmodal"
-        tabindex="-1"
         role="dialog"
         aria-hidden="true"
       >
@@ -209,9 +207,10 @@
         >
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="adventurebookmodaltitle">
+              <h5 class="modal-title display-4" id="adventurebookmodaltitle">
                 Adventure Book
               </h5>
+
               <button
                 type="button"
                 class="close btn btn-light"
@@ -221,10 +220,12 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body" id="displayadventures"></div>
-            <button cclass="btn btn-dark" id="storeAdventure">
-              Store Adventure to Account
-            </button>
+
+
+            <div class="modal-body">
+              <div id="displayadventures"></div>
+            </div>
+
           </div>
         </div>
       </div>

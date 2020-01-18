@@ -271,11 +271,11 @@ function appendToSomethingDiv() {
   $(this, "button").hide();
   $(this, "card-body").hide();
 }
+
 // Store adventures under account name
 $("#saveAdventure").on("click", function() {
   var customItinerary = $(this).siblings();
   var savedAdventures = [];
-  console.log(adventureKey);
   var adventureInfo = {
     Destination: $("#adventureLocationInput").val(),
     Date: $("#startDateInput").val(),
@@ -283,30 +283,37 @@ $("#saveAdventure").on("click", function() {
   };
   savedAdventures.push(adventureInfo);
   console.warn("Adventure Added", savedAdventures);
-  localStorage.setItem(adventureKey, JSON.stringify(savedAdventures));
+  localStorage.setItem("currentAdventure", JSON.stringify(savedAdventures));
   console.log(savedAdventures[0].savedItinerary[0]);
 
   var addAdventure = savedAdventures[0].savedItinerary;
 
   console.log(addAdventure);
-  var adventureName =
-    savedAdventures[0].Destination + " " + savedAdventures[0].Date;
-  for (var i = 0; i < addAdventure.length; i++) {
-    var savedContainer = $("<div class='container'></div>");
-    var savedActivityTitle = $("<h4 class='card-title'></h4>");
-    var adventureTitle = $("<h1 class='display-4'></h1>");
-    adventureTitle.text(adventureName);
-    savedActivityTitle.append(addAdventure[i]);
-    savedContainer.append(savedActivityTitle);
-    savedContainer.prepend(adventureTitle);
+  viewAdventures();
+
+  function viewAdventures() {
+    var adventureName =
+      savedAdventures[0].Destination + " " + savedAdventures[0].Date;
+
+    for (var i = 0; i < addAdventure.length; i++) {
+      var savedContainer = $("<div class='card'></div>");
+      var savedContainerCardHeader = $("<div class='card-header'></div>");
+      var savedActivityTitle = $("<h2 class='display-4'></h2>");
+
+      savedActivityTitle.text(adventureName);
+      savedContainerCardHeader.append(savedActivityTitle);
+      savedContainer.append(savedContainerCardHeader);
+    }
+    for (var i = 0; i < addAdventure.length; i++) {
+      var savedBody = $("<div></div>");
+      var savedBodyContent = $("<div class='card-body' ></div>");
+      savedBody.append(savedBodyContent);
+      savedBodyContent.append(addAdventure[i]);
+      savedContainer.append(savedBody);
+    }
+    var adventureAccordion = $("<div class='accordion' ></div>");
+    adventureAccordion.append(savedContainer);
+
+    $("#displayadventures").append(adventureAccordion);
   }
-  for (var i = 0; i < addAdventure.length; i++) {
-    var savedBody = $("<p class='card-text'></p>");
-    savedBody.append(addAdventure[i]);
-    savedContainer.append(savedBody);
-  }
-  $("#displayadventures").append(savedContainer);
 });
-var retrieveUser = localStorage.getItem("accounts");
-var renderUser = JSON.parse(retrieveUser);
-var adventureKey = renderUser[0].Name + renderUser[0].Password;
