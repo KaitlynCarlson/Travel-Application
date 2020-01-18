@@ -5,6 +5,9 @@
   height: 700px;
   position: relative;
 }
+#storeAdventure {
+  margin: 4%;
+}
 
 #nav-main {
   background-color: #0a1548;
@@ -128,6 +131,17 @@
 #user-account:hover {
   opacity: 100%;
 }
+#loggedin {
+  color: white;
+  font-weight: lighter;
+}
+#buildAdventure {
+  height: fit-content;
+}
+.modal-body {
+  display: flex;
+  justify-content: center;
+}
 /* Close Button */
 .close {
   width: 30px;
@@ -143,7 +157,7 @@
   text-align: center;
   line-height: 100%;
 }
-/** Media Adjustments **/
+/** Media Response **/
 
 @media (max-width: 1500px) {
   .modalright {
