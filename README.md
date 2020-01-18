@@ -1,41 +1,32 @@
-# Project-One
+# Choose Your Own Adventure
 
-# Project Title(s)
+An application in which users can enter travel parameters that specify the adventure they would like to receive information on, and returns information on flights, hotels, and activities that meet those parameters.
 
-Adventure Search - Fly Away - Full Send - We've Landed - Choose your Venture
+## Purpose / User Story
 
-# Description
+As a user who wants to travel, I want to minimize planning so that I can adventure more easily.
 
-This project will give the user the ability to book an entire trip itinerary from one site. The user can put in given parameters and we will return travel options based on the input. User can specify budget, weather, travel dates and moe to return various itineraries.
+## Functionality
 
-# User Story
+On load, this application prompts users to create an account. This is not secure, and merely an accent to the application to create a more complete feel for the experience. Upon entering the site, the user may enter their adventure criteria. When the user enters their adventure criteria, and clicks the "Let's Go" button three actions are performed.
 
-As a user who wants to travel
-I want to minimize planning
-So that I can adventure often
+Three query calls are created for two apis, Skyscanner and TripAdvisor. Each of these query calls is built using the user's entered adventure criteria. The query call then returns data that matches the user's entered parameters. This data is then rendered into the approprate card (flights, hotels, activities). Each item is rendering with a button called "Mark Your Spot."
 
-# Minimum User requirements
+The "mark your spot" button enables users to build their custom adventure in the right hand card. Once they have completed their customized adventures, users are able to save the adventure. When saved, their adventures can be viewed in the adventure book modal.
 
-Page should be responsive and usable on multiple devices (mobile & desktop).
-User can create an account to save their itinerary.
-User should be able to search using travel dates to have it return a given amount of itinerary options.
-User will be able to view flight options, 5 hotels and 5 places to eat.
-User will see a preview of possible itineraries.
-User can click on any given itinerary to display the itinerary in the adventure div
+![Adventure (1)](https://user-images.githubusercontent.com/56744605/72667729-e5880200-39d3-11ea-8d2e-cd7bac57257b.png)
 
-# Additional Usability Additions
 
-User can create a countdown to add to their user profile.
-User is able to add additional Search Parameters:
-*Climate
-*Things to see and do
-\*Region
 
-# Business Information
+## APIs
 
-Will use free API's from Rapid API. Booking.com API to find prices for flights based on date range. We will call on additional APIs for things to do and the weather for the region. Biggest challenge we are facing is the speed of the return on the site. The more AJAX calls the longer it will take to load and we want to keep the UI fast.
+- Skyscanner
+- TripAdvisor
 
-Additionally, there is space to add and expand search fields and the info that is returned and appeded on the page. Starting with basic card links but thinking modals will also be useful for returning information to the User.
+## Styles
+CSS Bootstrap
+Font Awesome
+
 
 ## Project GitHub Participants
 

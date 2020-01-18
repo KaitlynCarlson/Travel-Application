@@ -11,15 +11,33 @@
 body.waiting * {
   cursor: progress;
 }
+#storeAdventure {
+  margin: 4%;
+}
 
 button {
   color: white;
   border: solid 1px;
 }
 
+#ret-date-format {
+  font-style: italic;
+  font-size: smaller;
+  color: #04114a;
+}
+
+#dep-date-format {
+  font-style: italic;
+  font-size: smaller;
+  color: #04114a;
+}
+
 #nav-main {
   background-color: #0a1548;
   display: flex;
+  margin-bottom: 5px;
+  justify-content: space-between;
+  border-radius: 0%;
 }
 
 #userIcon {
@@ -139,6 +157,22 @@ button {
 #user-account:hover {
   opacity: 100%;
 }
+
+#loggedin {
+  color: white;
+  font-weight: lighter;
+}
+#custom {
+  height: fit-content;
+  padding: 20px;
+}
+#buildAdventure {
+  height: fit-content;
+}
+.modal-body {
+  display: flex;
+  justify-content: center;
+}
 /* Close Button */
 .close {
   width: 30px;
@@ -154,7 +188,7 @@ button {
   text-align: center;
   line-height: 100%;
 }
-/** Media Adjustments **/
+/** Media Response **/
 
 @media (max-width: 1500px) {
   .modalright {
