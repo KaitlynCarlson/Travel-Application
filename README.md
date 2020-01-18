@@ -23,6 +23,11 @@ The "mark your spot" button enables users to build their custom adventure in the
 - Skyscanner
 - TripAdvisor
 
+## Styles
+CSS Bootstrap
+Font Awesome
+
+
 ## Project GitHub Participants
 
 Remy Guts @remyguts
