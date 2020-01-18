@@ -317,3 +317,8 @@ $("#saveAdventure").on("click", function() {
     $("#displayadventures").append(adventureAccordion);
   }
 });
+
+var retrieveUser = localStorage.getItem("accounts");
+var renderUser = JSON.parse(retrieveUser);
+var adventureKey = renderUser[0].Name + renderUser[0].Password;
+
