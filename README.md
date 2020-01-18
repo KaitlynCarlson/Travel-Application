@@ -8,7 +8,7 @@ As a user who wants to travel, I want to minimize planning so that I can adventu
 
 ## Functionality
 
-On load this application prompts users to create an account. This is not secure, and merely an accent to the application to create a more complete feel for the experience. Upon entering the site, the user may enter their adventure criteria. When the user enters their adventure criteria, and clicks the "Let's Go" button three actions are performed.
+On load, this application prompts users to create an account. This is not secure, and merely an accent to the application to create a more complete feel for the experience. Upon entering the site, the user may enter their adventure criteria. When the user enters their adventure criteria, and clicks the "Let's Go" button three actions are performed.
 
 Three query calls are created for two apis, Skyscanner and TripAdvisor. Each of these query calls is built using the user's entered adventure criteria. The query call then returns data that matches the user's entered parameters. This data is then rendered into the approprate card (flights, hotels, activities). Each item is rendering with a button called "Mark Your Spot."
 
