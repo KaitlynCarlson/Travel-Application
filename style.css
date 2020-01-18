@@ -12,6 +12,9 @@
 #nav-main {
   background-color: #0a1548;
   display: flex;
+  margin-bottom: 5px;
+  justify-content: space-between;
+  border-radius: 0%;
 }
 
 #userIcon {
@@ -131,9 +134,14 @@
 #user-account:hover {
   opacity: 100%;
 }
+
 #loggedin {
   color: white;
   font-weight: lighter;
+}
+#custom {
+  height: fit-content;
+  padding: 20px;
 }
 #buildAdventure {
   height: fit-content;

@@ -290,60 +290,30 @@ $("#saveAdventure").on("click", function() {
 
   console.log(addAdventure);
   viewAdventures();
+
   function viewAdventures() {
     var adventureName =
       savedAdventures[0].Destination + " " + savedAdventures[0].Date;
+
     for (var i = 0; i < addAdventure.length; i++) {
       var savedContainer = $("<div class='card'></div>");
-      var savedContainerCardHeader = $(
-        "<div class='card-header' id='headingOne'></div>"
-      );
-      var savedActivityTitle = $("<h2 class='mb-0'></h4>");
-      var adventureTitle = $(
-        "<button class='btn btn-link' type='button' data-toggle='collapse' aria-expanded='true'></button>"
-      );
-      adventureTitle.text(adventureName);
-      savedActivityTitle.append(adventureTitle);
+      var savedContainerCardHeader = $("<div class='card-header'></div>");
+      var savedActivityTitle = $("<h2 class='display-4'></h2>");
+
+      savedActivityTitle.text(adventureName);
       savedContainerCardHeader.append(savedActivityTitle);
       savedContainer.append(savedContainerCardHeader);
     }
     for (var i = 0; i < addAdventure.length; i++) {
-      var savedBody = $(
-        "<div id='collapseOne' class='collapse show' data-parent='adventureAccordion' ></div>"
-      );
-      var savedBodyContent = $("<div class='card-body'></div>");
+      var savedBody = $("<div></div>");
+      var savedBodyContent = $("<div class='card-body' ></div>");
       savedBody.append(savedBodyContent);
       savedBodyContent.append(addAdventure[i]);
       savedContainer.append(savedBody);
     }
-    var adventureAccordion = $(
-      "<div class='accordion' id='adventureAccordion'></div>"
-    );
+    var adventureAccordion = $("<div class='accordion' ></div>");
     adventureAccordion.append(savedContainer);
 
     $("#displayadventures").append(adventureAccordion);
-
-    var userAdventures = [];
-    userAdventures.push(addAdventure);
-    // console.log(userAdventures);
-    //   sa.preventDefault();
-    var retrieveUser = localStorage.getItem("accounts");
-    var renderUser = JSON.parse(retrieveUser);
-    var adventureKey = renderUser[0].Name + renderUser[0].Password;
-    //   console.log($(this).siblings());
-    //   var accessCurrentAdventure = $(this).siblings();
-    //   var adventureData = accessCurrentAdventure[0].adventureItinerary;
-    //   console.log(adventureData);
-
-    var userStoredAdventures = {
-      adventureItinerary: addAdventure
-    };
-    userAdventures.push(userStoredAdventures);
-    console.warn("add", userAdventures);
-    localStorage.setItem(adventureKey, JSON.stringify(userAdventures));
-    var get = localStorage.getItem("adventureKey");
-    get = JSON.parse(get);
-    console.log(get);
   }
 });
-$("#userIcon").on("click", viewAdventures());
