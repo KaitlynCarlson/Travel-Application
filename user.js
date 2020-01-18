@@ -1,6 +1,6 @@
 // Create account on load modal
 $(document).ready(function(event) {
-  // $("#myModal").modal("show");
+  $("#myModal").modal("show");
   event.preventDefault();
 });
 
