@@ -9,6 +9,11 @@
   margin: 4%;
 }
 
+button {
+  color: white;
+  border: solid 1px;
+}
+
 #nav-main {
   background-color: #0a1548;
   display: flex;
