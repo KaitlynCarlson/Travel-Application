@@ -310,3 +310,5 @@ $("#saveAdventure").on("click", function() {
 var retrieveUser = localStorage.getItem("accounts");
 var renderUser = JSON.parse(retrieveUser);
 var adventureKey = renderUser[0].Name + renderUser[0].Password;
+$("body").addClass("waiting");
+$("body").removeClass("waiting");
