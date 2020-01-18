@@ -11,6 +11,18 @@ button {
   border: solid 1px;
 }
 
+#ret-date-format {
+  font-style: italic;
+  font-size: smaller;
+  color: #04114a;
+}
+
+#dep-date-format {
+  font-style: italic;
+  font-size: smaller;
+  color: #04114a;
+}
+
 #nav-main {
   background-color: #0a1548;
   display: flex;
