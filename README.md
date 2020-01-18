@@ -1,10 +1,4 @@
-# Project-One
-
-# Project Title(s)
-
-Adventure Search - Fly Away - Full Send - We've Landed - Choose your Venture
-
-# Description
+# Choose Your Own Adventure
 
 This project will give the user the ability to book an entire trip itinerary from one site. The user can put in given parameters and we will return travel options based on the input. User can specify budget, weather, travel dates and moe to return various itineraries.
 
