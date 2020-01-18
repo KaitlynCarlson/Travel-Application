@@ -14,6 +14,10 @@ Three query calls are created for two apis, Skyscanner and TripAdvisor. Each of 
 
 The "mark your spot" button enables users to build their custom adventure in the right hand card. Once they have completed their customized adventures, users are able to save the adventure. When saved, their adventures can be viewed in the adventure book modal.
 
+![Adventure (1)](https://user-images.githubusercontent.com/56744605/72667729-e5880200-39d3-11ea-8d2e-cd7bac57257b.png)
+
+
+
 ## APIs
 
 - Skyscanner
