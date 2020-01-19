@@ -1,7 +1,7 @@
 function buildQueryURLFlight() {
   var adventureLocation = $("#adventureLocationInput").val();
   var userLocation = $("#userLocationInput").val();
-  var cityId = "";
+  // var `cityId` = "";
   var startDate = $("#startDateInput").val();
   var endDate = $("#endDateInput").val();
   // console.log(adventureLocation);
@@ -27,40 +27,16 @@ function buildQueryURLFlight() {
 
     //   console.log(location);
 
-    cityId = adventure.Places[0].CityId;
+    Lol(adventure.Places[0].CityId);
   });
 
-  var userInfo = {
-    async: true,
-    crossDomain: true,
-    url:
-      "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=" +
-      userLocation,
-    method: "GET",
-    headers: {
-      "x-rapidapi-host":
-        "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-      "x-rapidapi-key": "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d"
-    }
-  };
-  $.ajax(userInfo).done(function(userresponse) {
-    //   console.log(userresponse);
-    //   console.log(userLocation);
-    var userCityId = userresponse.Places[0].CityId;
-    //   console.log(userCityId);
-    //   console.log(cityId);
-    var flightSearch = {
+  function Lol(cityId) {
+    var userInfo = {
       async: true,
       crossDomain: true,
       url:
-        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" +
-        userCityId +
-        "/" +
-        cityId +
-        "/" +
-        startDate +
-        "?inboundpartialdate=" +
-        endDate,
+        "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query=" +
+        userLocation,
       method: "GET",
       headers: {
         "x-rapidapi-host":
@@ -68,38 +44,72 @@ function buildQueryURLFlight() {
         "x-rapidapi-key": "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d"
       }
     };
-    $.ajax(flightSearch).then(function(adventureFlight) {
-      // console.log(adventureFlight);
-      var fly = adventureFlight.Quotes;
+    $.ajax(userInfo)
+      .fail(function(err) {
+        console.error(err, "found an error, need to try again!");
+      })
+      .done(function(userresponse) {
+        //   console.log(userresponse);
+        //   console.log(userLocation);
+        var userCityId = userresponse.Places[0].CityId;
+        //   console.log(userCityId);
+        //   console.log(cityId);
+        var flightSearch = {
+          async: true,
+          crossDomain: true,
+          url:
+            "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/" +
+            userCityId +
+            "/" +
+            cityId +
+            "/" +
+            startDate +
+            "?inboundpartialdate=" +
+            endDate,
+          method: "GET",
+          headers: {
+            "x-rapidapi-host":
+              "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+            "x-rapidapi-key":
+              "54fe8ad1femshf879567efc0115ap19ca9fjsn5da4b88c683d"
+          }
+        };
+        $.ajax(flightSearch).then(function(adventureFlight) {
+          console.log(adventureFlight);
 
-      searchFlightPriceAndProvider(fly);
-      function searchFlightPriceAndProvider() {
-        for (var i = 0; i <= fly.length; ++i) {
-          var flightPrices = fly[i].MinPrice;
-          var flightsQuotedProviders = fly[i].OutboundLeg.CarrierIds;
-          // console.log(providerId);
-          var displayFlightCard = $('<div class="card-body"></div>');
-          var displayFlightTitle = $('<h4 class="card-title"></h4> ');
-          var displayFlightBody = $('<p class="card-text"></p> ');
+          searchFlightPriceAndProvider(adventureFlight);
+        });
+      });
+  }
+}
 
-          displayFlightTitle.append(
-            "Flights found for " + startDate + " starting at "
-          );
-          displayFlightBody.append(
-            "$ " + flightPrices + " from " + flightsQuotedProviders
-          );
+function searchFlightPriceAndProvider(adventureFlight) {
+  var fly = adventureFlight;
 
-          displayFlightCard.append([displayFlightTitle, displayFlightBody]);
+  var displayFlightCard = $('<div class="card-body"></div>');
+  var displayFlightTitle = $('<h4 class="card-title"></h4> ');
+  var displayFlightBody = $('<p class="card-text"></p>');
+  var flightCarrier;
+  for (var i = 0; i < fly.Quotes.length; ++i) {
+    var flightPrices = fly.Quotes[i].MinPrice;
 
-          $("#flight-display").append(displayFlightCard);
-        }
+    for (var j = 0; j < fly.Carriers.length; ++j) {
+      if (
+        fly.Carriers[j].CarrierId === fly.Quotes[i].OutboundLeg.CarrierIds[0]
+      ) {
+        flightCarrier = fly.Carriers[j].Name;
+        displayFlightBody.append(
+          "Fly with " + flightCarrier + " for  $" + flightPrices + "<br>"
+        );
       }
-    });
-  });
+    }
+  }
+  displayFlightTitle.append("Flights found for " + $("#startDateInput").val());
+  displayFlightCard.append([displayFlightTitle, displayFlightBody]);
+  $("#flight-display").append(displayFlightCard);
 }
 
 function buildQueryURLSleep() {
-  var adventureStartLocationHotel = $("#userLocationInput").val();
   var adventureLocationHotel = $("#adventureLocationInput").val();
   var checkIn = $("#startDateInput").val();
   var adventureHotelLocation = {

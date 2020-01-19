@@ -1,7 +1,6 @@
 // Create account on load modal
-$(document).ready(function(event) {
+$(document).ready(function() {
   $("#myModal").modal("show");
-  event.preventDefault();
 });
 
 // Store account on create account button click
