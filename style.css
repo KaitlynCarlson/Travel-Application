@@ -101,6 +101,13 @@ button {
   height: auto;
 }
 
+#instruction-area {
+  justify-content: space-around;
+  font-size: 18px;
+  padding-top: 30px;
+  color: #0a1548;
+}
+
 /* #top {
   width: 200px;
 } */
