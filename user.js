@@ -1,6 +1,15 @@
 // Create account on load modal
-$(document).ready(function() {
-  $("#myModal").modal("show");
+
+$(document).ready(function(event) {
+  var userCreated = JSON.parse(localStorage.getItem("accounts"));
+  console.log(userCreated);
+  if (userCreated === null || undefined) {
+    $("#myModal").modal("show");
+  } else {
+    $("#loggedin").append(userCreated[0].Name);
+  }
+  event.preventDefault();
+
 });
 
 // Store account on create account button click
