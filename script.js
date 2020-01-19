@@ -251,6 +251,15 @@ function findActivities() {
   });
 }
 
+function scrollTo() {
+  $("html, body").animate(
+    {
+      scrollTop: $("#adventureRow").offset().top
+    },
+    1000
+  );
+}
+
 function clear() {
   $("#flight-display").empty();
   $("#hotel-display").empty();
@@ -262,6 +271,7 @@ $("#searchCriteria").on("click", function() {
   buildQueryURLFlight();
   buildQueryURLSleep();
   findActivities();
+  scrollTo();
 });
 
 var itineraryDiv = $("#right-block");
