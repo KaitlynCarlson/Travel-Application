@@ -42,7 +42,7 @@ This will return results and they will show in the cards below on the left, allo
 
 Once you created your list you can save everything to your adventure book under your account to view later
 
-![alt text](newassets/AdventureBookcomplete.png "Save to your Adventure Book")
+![alt text](newassets/AdventureBookComplete.png "Save to your Adventure Book")
 
 ## APIs
 
@@ -51,8 +51,8 @@ Once you created your list you can save everything to your adventure book under 
 
 ## Styles
 
-CSS Bootstrap
-Font Awesome
+- CSS Bootstrap
+- Font Awesome
 
 ## Project GitHub Participants
 
