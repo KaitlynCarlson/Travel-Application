@@ -1,4 +1,5 @@
 // Create account on load modal
+
 $(document).ready(function(event) {
   var userCreated = JSON.parse(localStorage.getItem("accounts"));
   console.log(userCreated);
@@ -8,6 +9,7 @@ $(document).ready(function(event) {
     $("#loggedin").append(userCreated[0].Name);
   }
   event.preventDefault();
+
 });
 
 // Store account on create account button click
