@@ -6,8 +6,8 @@ function buildQueryURLFlight() {
   var endDate = $("#endDateInput").val();
   // console.log(adventureLocation);
   // console.log(userLocation);
-  // console.log(startFlightDate);
-  // console.log(endFlightDate);
+  // console.log(startDate);
+  // console.log(endDate);
   var destinationLocation = {
     async: true,
     crossDomain: true,
@@ -331,4 +331,3 @@ $("#saveAdventure").on("click", function() {
 var retrieveUser = localStorage.getItem("accounts");
 var renderUser = JSON.parse(retrieveUser);
 var adventureKey = renderUser[0].Name + renderUser[0].Password;
-
