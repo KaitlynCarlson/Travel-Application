@@ -4,10 +4,34 @@
   background-size: 100%;
   height: 800px;
   position: relative;
+  margin: 0px;
+  width: 100%;
+}
+
+body.waiting * {
+  cursor: progress;
 }
 #storeAdventure {
   margin: 4%;
 }
+
+button {
+  color: white;
+  border: solid 1px;
+}
+
+#ret-date-format {
+  font-style: italic;
+  font-size: smaller;
+  color: #04114a;
+}
+
+#dep-date-format {
+  font-style: italic;
+  font-size: smaller;
+  color: #04114a;
+}
+
 
 #nav-main {
   background-color: #0a1548;
