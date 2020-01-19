@@ -103,6 +103,9 @@ function searchFlightPriceAndProvider(adventureFlight) {
         );
       }
     }
+    if (flightPrices === 0 || null) {
+      displayFlightTitle.append("Price quotes unavailable");
+    }
   }
   displayFlightTitle.append("Flights found for " + $("#startDateInput").val());
   displayFlightCard.append([displayFlightTitle, displayFlightBody]);
